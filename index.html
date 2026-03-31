@@ -8,122 +8,66 @@
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
 
 <style>
-* {
-  margin:0;
-  padding:0;
-  box-sizing:border-box;
-  font-family:'Poppins',sans-serif;
-}
+*{margin:0;padding:0;box-sizing:border-box;font-family:'Poppins',sans-serif;}
+body{display:flex;}
 
-body {
-  display:flex;
+/* SIDEBAR */
+.sidebar{
+  width:260px;height:100vh;background:#0f172a;color:white;
+  padding:30px 20px;position:fixed;overflow:auto;
 }
-
-/* ===== SIDEBAR ===== */
-.sidebar {
-  width:260px;
-  height:100vh;
-  background:#0f172a;
-  color:white;
-  padding:30px 20px;
-  position:fixed;
-}
-
-.profile-img {
-  width:90px;
-  height:90px;
-  border-radius:50%;
+.profile-img{
+  width:90px;height:90px;border-radius:50%;
   background:url('https://raw.githubusercontent.com/sagarbhilare90/Ai_Portfolio/main/profile.jpg') center/cover;
   margin:auto;
 }
+.name{text-align:center;margin-top:10px;font-weight:600;}
 
-.name {
-  text-align:center;
-  margin-top:10px;
-  font-weight:600;
+.nav{margin-top:30px;}
+.nav a{
+  display:block;padding:10px;color:#cbd5e1;text-decoration:none;
 }
+.nav a:hover{background:#1e293b;}
 
-.nav {
-  margin-top:30px;
-}
+/* MAIN */
+.main{margin-left:260px;width:100%;}
 
-.nav a {
-  display:block;
-  padding:10px;
-  color:#cbd5e1;
-  text-decoration:none;
-  border-radius:5px;
-}
-
-.nav a:hover {
-  background:#1e293b;
-}
-
-/* ===== MAIN ===== */
-.main {
-  margin-left:260px;
-  width:100%;
-}
-
-/* ===== HERO ===== */
-.hero {
+/* HERO */
+.hero{
   height:100vh;
   background:url('https://raw.githubusercontent.com/sagarbhilare90/Ai_Portfolio/main/Gemini_Generated_Image_o3s6fyo3s6fyo3s6.png') center/cover no-repeat;
-  display:flex;
-  align-items:center;
-  padding:60px;
-  position:relative;
+  display:flex;align-items:center;padding:60px;position:relative;
 }
-
-.hero::after {
-  content:"";
-  position:absolute;
-  inset:0;
-  background:rgba(0,0,0,0.5);
+.hero::after{
+  content:"";position:absolute;inset:0;background:rgba(0,0,0,0.65);
 }
+.hero-content{position:relative;color:white;max-width:800px;}
+.hero h1{font-size:52px;}
+.hero p{font-size:22px;margin-top:10px;}
 
-.hero-content {
-  position:relative;
-  color:white;
-  max-width:600px;
+/* SECTION */
+section{padding:60px;}
+h2{margin-bottom:20px;}
+
+/* CARD */
+.card{
+  background:#f1f5f9;padding:20px;margin-bottom:20px;border-radius:8px;
 }
+ul{margin-left:20px;margin-top:10px;}
+li{margin-bottom:8px;}
 
-.hero h1 {
-  font-size:52px;
+/* LINKS */
+a{
+  color:#2563eb;
+  text-decoration:none;
+  font-weight:500;
 }
+a:hover{text-decoration:underline;}
 
-.hero p {
-  font-size:22px;
-}
-
-/* ===== SECTIONS ===== */
-section {
-  padding:60px;
-}
-
-h2 {
-  margin-bottom:20px;
-}
-
-/* ===== CARDS ===== */
-.card {
-  background:#f1f5f9;
-  padding:20px;
-  margin-bottom:20px;
-  border-radius:8px;
-}
-
-/* ===== RESPONSIVE ===== */
+/* RESPONSIVE */
 @media(max-width:768px){
-  .sidebar {
-    position:relative;
-    width:100%;
-    height:auto;
-  }
-
-  .main {
-    margin-left:0;
-  }
+.sidebar{position:relative;width:100%;height:auto;}
+.main{margin-left:0;}
 }
 </style>
 </head>
@@ -137,10 +81,13 @@ h2 {
 
   <div class="nav">
     <a href="#home">Home</a>
-    <a href="#about">About</a>
+    <a href="#summary">Summary</a>
+    <a href="#competencies">Core Competencies</a>
     <a href="#experience">Experience</a>
     <a href="#projects">Projects</a>
-    <a href="#skills">Skills</a>
+    <a href="#skills">Technical Skills</a>
+    <a href="#education">Education</a>
+    <a href="#achievements">Achievements</a>
     <a href="#contact">Contact</a>
   </div>
 </div>
@@ -152,99 +99,120 @@ h2 {
   <div class="hero-content">
     <h1>Sagar Bhilare</h1>
     <p id="typing"></p>
+    <p>Lead AI Engineer | GenAI Architect | Data Science Team Lead</p>
   </div>
 </section>
 
-<!-- ABOUT -->
-<section id="about">
-  <h2>About Me</h2>
-  <p>
-    Lead AI Engineer and GenAI Architect with 10+ years of experience building production-grade AI systems.
-    Expert in LangChain, LangGraph, MCP, RAG pipelines, and cloud-based ML systems across AWS, GCP, and Azure.
-    Proven track record of leading AI teams and delivering enterprise-grade solutions.
-  </p>
+<!-- SUMMARY -->
+<section id="summary">
+<h2>Professional Summary</h2>
+<p>
+Results-driven AI/ML leader with 10+ years of experience spanning hands-on engineering, corporate training, and team building. Proven track record in architecting and deploying end-to-end LLM pipelines using LangChain, LangGraph, and Model Context Protocol (MCP). Extensive expertise building high-performance AI teams at NIIT and Imarticus Learning, with deep knowledge in GenAI, RAG architectures, CI/CD pipelines for ML, and cloud-native MLOps. Led large-scale insurance AI projects for US-based healthcare payors (Aetna, Anthem), delivering production-grade ML and NLP systems on AWS, GCP, and Azure.
+</p>
+</section>
+
+<!-- CORE -->
+<section id="competencies">
+<h2>Core Competencies</h2>
+<p>
+LLM Development & Prompt Engineering • LangChain • LangGraph • MCP • RAG • Vector Databases • CI/CD • A/B Testing • Causal Inference • NLP • ETL • ML Monitoring • Docker
+</p>
 </section>
 
 <!-- EXPERIENCE -->
 <section id="experience">
-  <h2>Experience</h2>
+<h2>Professional Experience</h2>
 
-  <div class="card">
-    <h3>Data Science Team Lead — ElevateMe (Dash Technologies)</h3>
-    <p>Leading cross-functional AI teams building production-grade GenAI systems using LangChain, LangGraph, and MCP.</p>
-  </div>
+<div class="card">
+<h3>Data Science Team Lead — Elevate Me</h3>
+<ul>
+<li>Led GenAI systems using LangChain, LangGraph, MCP</li>
+<li>Designed CI/CD ML pipelines across AWS, GCP, Azure</li>
+<li>Deployed APIs on Azure AKS with sub-100ms latency</li>
+<li>Managed ML monitoring and performance tracking</li>
+</ul>
+</div>
 
-  <div class="card">
-    <h3>Senior Data Science Coach — Imarticus Learning</h3>
-    <p>Trained 200+ professionals in AI/ML and GenAI. Built enterprise AI solutions for US healthcare clients.</p>
-  </div>
-
-  <div class="card">
-    <h3>Associate Mentor — NIIT Ltd.</h3>
-    <p>Delivered corporate training in AI/ML, MLOps, and data science.</p>
-  </div>
+<div class="card">
+<h3>Senior Data Science Coach — Imarticus</h3>
+<ul>
+<li>Trained 200+ professionals in AI/ML</li>
+<li>Built enterprise AI systems for US healthcare</li>
+</ul>
+</div>
 
 </section>
 
 <!-- PROJECTS -->
 <section id="projects">
-  <h2>Projects</h2>
+<h2>Projects</h2>
 
-  <div class="card">
-    <h3>AI Insurance Coverage Monitoring System</h3>
-    <p>
-      Processed 7000+ policy documents using NLP models (BERT) and deployed REST APIs on Azure.
-    </p>
-  </div>
+<div class="card">
+<h3>AI Insurance Coverage Monitoring</h3>
+<ul>
+<li>Processed 7000+ policy documents</li>
+<li>Built NLP system using BERT</li>
+<li>Deployed on Azure</li>
+</ul>
+</div>
 
-  <div class="card">
-    <h3>Data Lineage Tracking Agent</h3>
-    <p>
-      Built multi-agent system using LangGraph + MCP for Snowflake lineage tracking with Neo4j visualization.
-    </p>
-  </div>
+<div class="card">
+<h3>Data Lineage Agent</h3>
+<ul>
+<li>Multi-agent system using LangGraph & MCP</li>
+<li>Neo4j lineage visualization</li>
+</ul>
+</div>
 
 </section>
 
 <!-- SKILLS -->
 <section id="skills">
-  <h2>Skills</h2>
-  <p>
-    LangChain, LangGraph, MCP, RAG, Python, SQL, TensorFlow, PyTorch, AWS, Azure, GCP,
-    Docker, Kubernetes, MLflow, Airflow, Power BI, Tableau
-  </p>
+<h2>Technical Skills</h2>
+<p>LangChain, MCP, RAG, Python, SQL, AWS, Azure, GCP, Docker, Kubernetes</p>
+</section>
+
+<!-- EDUCATION -->
+<section id="education">
+<h2>Education</h2>
+<p>MSc AI — Mizoram University</p>
+<p>BE Mechanical — Pillai College</p>
+</section>
+
+<!-- ACHIEVEMENTS -->
+<section id="achievements">
+<h2>Achievements</h2>
+<ul>
+<li>HackerRank #1 Python Rank (2020)</li>
+<li>Built AI teams for L&T Infotech</li>
+</ul>
 </section>
 
 <!-- CONTACT -->
 <section id="contact">
-  <h2>Contact</h2>
-  <p>Email: sagarbhilare90@gmail.com</p>
-  <p>Phone: +91 7208226914</p>
-  <p>LinkedIn: linkedin.com/in/sagarbhilare</p>
-  <p>GitHub: github.com/sagarbhilare</p>
+<h2>Contact</h2>
+
+<p>Email: <a href="mailto:sagarbhilare90@gmail.com">sagarbhilare90@gmail.com</a></p>
+<p>Phone: <a href="tel:+917208226914">+91 7208226914</a></p>
+<p>LinkedIn: <a href="https://www.linkedin.com/in/sagarbhilare" target="_blank">linkedin.com/in/sagarbhilare</a></p>
+<p>GitHub: <a href="https://github.com/sagarbhilare90" target="_blank">github.com/sagarbhilare90</a></p>
+<p>HackerRank: <a href="https://www.hackerrank.com/profile/sagarbhilare90" target="_blank">hackerrank.com/profile/sagarbhilare90</a></p>
+
 </section>
 
 </div>
 
-<!-- TYPING ANIMATION -->
+<!-- TYPING -->
 <script>
-const roles = ["Lead AI Engineer","GenAI Architect","ML Engineer"];
+const roles=["Lead AI Engineer","GenAI Architect","Data Science Team Lead"];
 let i=0,j=0,current="",isDeleting=false;
-
 function type(){
-  current=roles[i];
-  document.getElementById("typing").innerHTML=current.substring(0,j);
-
-  if(!isDeleting && j<current.length){
-    j++;
-  } else if(isDeleting && j>0){
-    j--;
-  } else {
-    isDeleting=!isDeleting;
-    if(!isDeleting) i=(i+1)%roles.length;
-  }
-
-  setTimeout(type,isDeleting?50:100);
+current=roles[i];
+document.getElementById("typing").innerHTML=current.substring(0,j);
+if(!isDeleting&&j<current.length){j++;}
+else if(isDeleting&&j>0){j--;}
+else{isDeleting=!isDeleting;if(!isDeleting)i=(i+1)%roles.length;}
+setTimeout(type,isDeleting?50:100);
 }
 type();
 </script>
