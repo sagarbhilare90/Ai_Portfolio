@@ -8,88 +8,126 @@
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
 
 <style>
-*{margin:0;padding:0;box-sizing:border-box;font-family:'Poppins',sans-serif;}
-body{display:flex;background:#0b1220;color:#e2e8f0;}
+:root{
+--bg:#0b1220;
+--card:#0f172a;
+--text:#e2e8f0;
+--accent:#38bdf8;
+}
 
-/* SIDEBAR */
+.light{
+--bg:#f8fafc;
+--card:#ffffff;
+--text:#0f172a;
+}
+
+/* GLOBAL */
+*{margin:0;padding:0;box-sizing:border-box;font-family:'Poppins',sans-serif;}
+body{display:flex;background:var(--bg);color:var(--text);transition:0.3s;}
+
+/* SIDEBAR (UNCHANGED STYLE) */
 .sidebar{
-  width:260px;height:100vh;background:#0f172a;
-  padding:30px 20px;position:fixed;overflow:auto;
+width:260px;height:100vh;background:var(--card);
+padding:30px 20px;position:fixed;overflow:auto;
 }
 .profile-img{
-  width:90px;height:90px;border-radius:50%;
-  background:url('https://raw.githubusercontent.com/sagarbhilare90/Ai_Portfolio/main/profile.jpg') center/cover;
-  margin:auto;
+width:90px;height:90px;border-radius:50%;
+background:url('https://raw.githubusercontent.com/sagarbhilare90/Ai_Portfolio/main/profile.jpg') center/cover;
+margin:auto;
 }
 .name{text-align:center;margin-top:10px;font-weight:600;}
+
 .nav{margin-top:30px;}
 .nav a{
-  display:block;padding:10px;color:#94a3b8;text-decoration:none;
-  border-radius:8px;transition:0.3s;
+display:block;padding:10px;color:#94a3b8;text-decoration:none;
+border-radius:8px;
 }
 .nav a:hover{
-  background:linear-gradient(135deg,#2563eb,#7c3aed);
-  color:white;
+background:linear-gradient(135deg,#2563eb,#7c3aed);
+color:white;
 }
 
 /* MAIN */
 .main{margin-left:260px;width:100%;}
 
-/* HERO */
+/* HERO (UNCHANGED) */
 .hero{
-  height:100vh;
-  background:url('https://raw.githubusercontent.com/sagarbhilare90/Ai_Portfolio/main/Gemini_Generated_Image_o3s6fyo3s6fyo3s6.png') center/cover no-repeat;
-  display:flex;align-items:center;padding:60px;position:relative;
+height:100vh;
+background:url('https://raw.githubusercontent.com/sagarbhilare90/Ai_Portfolio/main/Gemini_Generated_Image_o3s6fyo3s6fyo3s6.png') center/cover no-repeat;
+display:flex;align-items:center;padding:60px;position:relative;
 }
 .hero::after{
-  content:"";position:absolute;inset:0;background:rgba(0,0,0,0.7);
+content:"";position:absolute;inset:0;background:rgba(0,0,0,0.7);
 }
 .hero-content{position:relative;}
 .hero h1{
-  font-size:60px;
-  background:linear-gradient(90deg,#38bdf8,#7c3aed);
-  -webkit-background-clip:text;
-  -webkit-text-fill-color:transparent;
+font-size:60px;
+background:linear-gradient(90deg,#38bdf8,#7c3aed);
+-webkit-background-clip:text;
+-webkit-text-fill-color:transparent;
 }
 .hero p{font-size:22px;margin-top:10px;}
 
 /* SECTION */
 section{padding:80px 60px;}
 h2{
-  font-size:30px;margin-bottom:25px;
-  background:linear-gradient(90deg,#38bdf8,#7c3aed);
-  -webkit-background-clip:text;
-  -webkit-text-fill-color:transparent;
+font-size:30px;margin-bottom:25px;
+background:linear-gradient(90deg,#38bdf8,#7c3aed);
+-webkit-background-clip:text;
+-webkit-text-fill-color:transparent;
 }
 
 /* CARD */
 .card{
-  background:rgba(255,255,255,0.05);
-  backdrop-filter:blur(12px);
-  border:1px solid rgba(255,255,255,0.1);
-  border-radius:12px;
-  padding:25px;
-  margin-bottom:25px;
-  transition:0.3s;
+background:rgba(255,255,255,0.05);
+border-radius:12px;padding:25px;margin-bottom:20px;
+transition:0.3s;
 }
-.card:hover{
-  transform:translateY(-5px);
-  border-color:#38bdf8;
+.card:hover{transform:translateY(-5px);}
+
+/* GRID */
+.grid{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+gap:20px;
 }
 
-/* TEXT */
-ul{margin-left:20px;}
-li{margin-bottom:10px;line-height:1.6;}
-p{color:#cbd5f5;line-height:1.7;}
+/* PIPELINE */
+.pipeline{
+display:flex;flex-wrap:wrap;gap:10px;
+}
+.step{
+background:#2563eb;
+padding:10px 15px;border-radius:20px;
+animation:float 2s infinite alternate;
+}
+@keyframes float{
+from{transform:translateY(0)}
+to{transform:translateY(-8px)}
+}
 
-/* LINKS */
-a{color:#38bdf8;text-decoration:none;}
-a:hover{text-decoration:underline;}
+/* TOGGLE */
+.toggle{
+position:fixed;
+right:20px;
+top:20px;
+background:var(--accent);
+color:white;
+padding:8px 12px;
+border:none;border-radius:6px;
+z-index:2000;
+}
 
-/* ANIMATION */
-.fade{opacity:0;transform:translateY(40px);transition:0.8s;}
-.fade.visible{opacity:1;transform:translateY(0);}
+/* DETAILS */
+.details{display:none;margin-top:15px;}
 
+/* GITHUB */
+.github{
+border:1px solid var(--accent);
+padding:10px;margin-top:10px;border-radius:8px;
+}
+
+/* MOBILE */
 @media(max-width:768px){
 .sidebar{position:relative;width:100%;}
 .main{margin-left:0;}
@@ -99,118 +137,123 @@ a:hover{text-decoration:underline;}
 
 <body>
 
+<button class="toggle" onclick="toggleTheme()">🌗</button>
+
 <div class="sidebar">
-  <div class="profile-img"></div>
-  <div class="name">Sagar Bhilare</div>
-  <div class="nav">
-    <a href="#home">Home</a>
-    <a href="#summary">Summary</a>
-    <a href="#competencies">Competencies</a>
-    <a href="#experience">Experience</a>
-    <a href="#projects">Projects</a>
-    <a href="#skills">Skills</a>
-    <a href="#education">Education</a>
-    <a href="#achievements">Achievements</a>
-    <a href="#contact">Contact</a>
-  </div>
+<div class="profile-img"></div>
+<div class="name">Sagar Bhilare</div>
+
+<div class="nav">
+<a href="#home">Home</a>
+<a href="#summary">Summary</a>
+<a href="#experience">Experience</a>
+<a href="#projects">Projects</a>
+<a href="#skills">Skills</a>
+<a href="#education">Education</a>
+<a href="#achievements">Achievements</a>
+<a href="#contact">Contact</a>
+<a href="Sagar_Resume.pdf" download>📄 Resume</a>
+</div>
 </div>
 
 <div class="main">
 
-<!-- HERO -->
+<!-- HERO (UNCHANGED) -->
 <section class="hero" id="home">
-  <div class="hero-content">
-    <h1>Sagar Bhilare</h1>
-    <p id="typing"></p>
-  </div>
-</section>
-
-<!-- SUMMARY -->
-<section class="fade" id="summary">
-<h2>Professional Summary</h2>
-<div class="card">
-<p>
-Results-driven AI/ML leader with 10+ years of experience spanning hands-on engineering, corporate training, and team building. Proven track record in architecting and deploying end-to-end LLM pipelines using LangChain, LangGraph, and MCP. Extensive expertise in GenAI, RAG architectures, CI/CD pipelines, and cloud-native MLOps across AWS, GCP, Azure.
-</p>
+<div class="hero-content">
+<h1>Sagar Bhilare</h1>
+<p id="typing"></p>
 </div>
 </section>
 
-<!-- CORE -->
-<section class="fade" id="competencies">
-<h2>Core Competencies</h2>
-<div class="card">
-<p>
-LLM Development, Prompt Engineering, LangChain, LangGraph, MCP, RAG, Vector DBs, CI/CD ML, A/B Testing, Causal Inference, NLP, ETL, ML Monitoring, Corporate Training, Deep Learning
-</p>
+<!-- ML PIPELINE -->
+<section>
+<h2>ML Pipeline Architecture</h2>
+<div class="pipeline">
+<div class="step">Kafka</div>
+<div class="step">Spark</div>
+<div class="step">Feast</div>
+<div class="step">MLflow</div>
+<div class="step">Kubernetes</div>
+<div class="step">Grafana</div>
 </div>
 </section>
 
 <!-- EXPERIENCE FULL -->
-<section class="fade" id="experience">
-<h2>Professional Experience</h2>
+<section id="experience">
+<h2>Experience</h2>
+
+<div class="card">Elevate Me – Lead AI Engineer</div>
+<div class="card">Imarticus – AI Trainer</div>
+<div class="card">NIIT – Mentor</div>
+<div class="card">Wiley – SME</div>
+<div class="card">Amity – Data Science</div>
+<div class="card">SPDT – Faculty</div>
+
+</section>
+
+<!-- PROJECTS -->
+<section id="projects">
+<h2>Projects</h2>
 
 <div class="card">
-<h3>Elevate Me – Dash Technologies (Nov 2024 – Present)</h3>
-<ul>
-<li>Lead and mentor cross-functional AI team building GenAI solutions using LangChain, LangGraph, MCP</li>
-<li>Architect multi-agent LLM systems for enterprise AI reasoning</li>
-<li>Design CI/CD ML pipelines with monitoring across AWS, GCP, Azure</li>
-<li>Deploy ML APIs on Azure AKS with sub-100ms latency</li>
-<li>Manage Azure SQL database for model metadata</li>
-<li>Implement ETL workflows and vector DB systems (FAISS, Pinecone, ChromaDB)</li>
-</ul>
+<h3>AI Insurance System</h3>
+<button onclick="toggle(this)">View</button>
+<div class="details">
+
+<div class="pipeline">
+<div class="step">Data</div>
+<div class="step">ML</div>
+<div class="step">BERT</div>
+<div class="step">API</div>
 </div>
 
-<div class="card">
-<h3>Imarticus Learning (Oct 2023 – Nov 2024)</h3>
-<ul>
-<li>Delivered AI/ML training to 200+ professionals</li>
-<li>Led AI Insurance system for Aetna & Anthem</li>
-<li>Built enterprise AI teams</li>
-<li>Worked on RAG, Sports Analytics, Insurance AI projects</li>
-</ul>
+<div class="github">
+<a href="https://github.com/sagarbhilare90">GitHub</a>
+</div>
+
+</div>
 </div>
 
 </section>
 
-<!-- PROJECTS FULL -->
-<section class="fade" id="projects">
-<h2>Key Projects</h2>
-
-<div class="card">
-<h3>AI Insurance Coverage Monitoring System</h3>
-<ul>
-<li>Analyzed 7000+ insurance documents</li>
-<li>Built ML + BERT NLP pipelines</li>
-<li>BigQuery ETL (8–10GB batches)</li>
-<li>Azure REST API deployment</li>
-<li>CI/CD + monitoring (F1, precision, recall)</li>
-</ul>
+<!-- SKILLS -->
+<section id="skills">
+<h2>Skills</h2>
+<div class="grid">
+<div class="card">LangChain, RAG</div>
+<div class="card">Docker, MLflow</div>
+<div class="card">Python</div>
+<div class="card">AWS, Azure</div>
 </div>
+</section>
 
-<div class="card">
-<h3>Data Lineage Tracking Agent</h3>
-<ul>
-<li>LangGraph multi-agent system with MCP</li>
-<li>SQL parsing via sqlglot</li>
-<li>Neo4j DAG lineage tracking</li>
-<li>LangSmith observability</li>
-</ul>
-</div>
+<!-- EDUCATION -->
+<section id="education">
+<h2>Education</h2>
+<div class="card">MSc AI – Mizoram University</div>
+<div class="card">BE Mechanical</div>
+</section>
 
+<!-- ACHIEVEMENTS -->
+<section id="achievements">
+<h2>Achievements</h2>
+<div class="card">HackerRank Rank 1</div>
 </section>
 
 <!-- CONTACT -->
-<section class="fade" id="contact">
+<section id="contact">
 <h2>Contact</h2>
-<p>Email: <a href="mailto:sagarbhilare90@gmail.com">sagarbhilare90@gmail.com</a></p>
-<p>LinkedIn: <a href="https://linkedin.com/in/sagarbhilare" target="_blank">linkedin.com/in/sagarbhilare</a></p>
-<p>GitHub: <a href="https://github.com/sagarbhilare90" target="_blank">github.com/sagarbhilare90</a></p>
+<div class="card">
+Email: sagarbhilare90@gmail.com<br>
+Phone: 7208226914
+</div>
 </section>
 
 </div>
 
 <script>
+// typing
 const roles=["Lead AI Engineer","GenAI Architect","Data Science Team Lead"];
 let i=0,j=0,current="",isDeleting=false;
 function type(){
@@ -223,14 +266,16 @@ setTimeout(type,isDeleting?50:100);
 }
 type();
 
-const elements=document.querySelectorAll('.fade');
-window.addEventListener('scroll',()=>{
-elements.forEach(el=>{
-if(el.getBoundingClientRect().top<window.innerHeight-100){
-el.classList.add('visible');
+// toggle
+function toggle(btn){
+let d=btn.nextElementSibling;
+d.style.display=d.style.display==="block"?"none":"block";
 }
-});
-});
+
+// theme
+function toggleTheme(){
+document.body.classList.toggle("light");
+}
 </script>
 
 </body>
