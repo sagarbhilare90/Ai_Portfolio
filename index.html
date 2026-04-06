@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Sagar Bhilare | AI Portfolio</title>
+<title>Sagar Bhilare | Lead AI Engineer</title>
 
 <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap" rel="stylesheet">
 
@@ -14,123 +14,82 @@
 --text:#e2e8f0;
 --accent:#38bdf8;
 }
-
 .light{
 --bg:#f8fafc;
 --card:#ffffff;
 --text:#0f172a;
 }
 
-/* GLOBAL */
-*{margin:0;padding:0;box-sizing:border-box;font-family:'Poppins',sans-serif;}
+*{margin:0;padding:0;box-sizing:border-box;font-family:'Poppins';}
 body{display:flex;background:var(--bg);color:var(--text);transition:0.3s;}
 
-/* SIDEBAR (UNCHANGED STYLE) */
+/* SIDEBAR */
 .sidebar{
 width:260px;height:100vh;background:var(--card);
-padding:30px 20px;position:fixed;overflow:auto;
+padding:30px 20px;position:fixed;
 }
 .profile-img{
-width:90px;height:90px;border-radius:50%;
-background:url('https://raw.githubusercontent.com/sagarbhilare90/Ai_Portfolio/main/profile.jpg') center/cover;
+width:100px;height:100px;border-radius:50%;
+background:url('profile.jpg') center/cover;
 margin:auto;
 }
 .name{text-align:center;margin-top:10px;font-weight:600;}
 
-.nav{margin-top:30px;}
 .nav a{
-display:block;padding:10px;color:#94a3b8;text-decoration:none;
-border-radius:8px;
+display:block;padding:10px;color:#94a3b8;text-decoration:none;border-radius:8px;
 }
-.nav a:hover{
-background:linear-gradient(135deg,#2563eb,#7c3aed);
-color:white;
-}
+.nav a:hover{background:#2563eb;color:white;}
 
-/* MAIN */
 .main{margin-left:260px;width:100%;}
 
-/* HERO (UNCHANGED) */
+/* HERO */
 .hero{
 height:100vh;
-background:url('https://raw.githubusercontent.com/sagarbhilare90/Ai_Portfolio/main/Gemini_Generated_Image_o3s6fyo3s6fyo3s6.png') center/cover no-repeat;
+background:url('https://raw.githubusercontent.com/sagarbhilare90/Ai_Portfolio/main/Gemini_Generated_Image_o3s6fyo3s6fyo3s6.png') center/cover;
 display:flex;align-items:center;padding:60px;position:relative;
 }
 .hero::after{
 content:"";position:absolute;inset:0;background:rgba(0,0,0,0.7);
 }
 .hero-content{position:relative;}
-.hero h1{
-font-size:60px;
-background:linear-gradient(90deg,#38bdf8,#7c3aed);
--webkit-background-clip:text;
--webkit-text-fill-color:transparent;
-}
+.hero h1{font-size:60px;background:linear-gradient(90deg,#38bdf8,#7c3aed);-webkit-background-clip:text;-webkit-text-fill-color:transparent;}
 .hero p{font-size:22px;margin-top:10px;}
 
 /* SECTION */
 section{padding:80px 60px;}
-h2{
-font-size:30px;margin-bottom:25px;
-background:linear-gradient(90deg,#38bdf8,#7c3aed);
--webkit-background-clip:text;
--webkit-text-fill-color:transparent;
-}
+h2{font-size:30px;margin-bottom:20px;color:#38bdf8;}
 
-/* CARD */
 .card{
 background:rgba(255,255,255,0.05);
-border-radius:12px;padding:25px;margin-bottom:20px;
-transition:0.3s;
+padding:20px;border-radius:12px;margin-bottom:20px;
 }
-.card:hover{transform:translateY(-5px);}
 
 /* GRID */
-.grid{
-display:grid;
-grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
-gap:20px;
+.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:20px;}
+
+/* METRICS */
+.metrics{display:flex;gap:20px;flex-wrap:wrap;}
+.metric{
+background:#2563eb;padding:15px;border-radius:10px;
 }
 
 /* PIPELINE */
-.pipeline{
-display:flex;flex-wrap:wrap;gap:10px;
-}
+.pipeline{display:flex;flex-wrap:wrap;gap:10px;}
 .step{
-background:#2563eb;
-padding:10px 15px;border-radius:20px;
+background:#2563eb;padding:10px;border-radius:20px;
 animation:float 2s infinite alternate;
 }
-@keyframes float{
-from{transform:translateY(0)}
-to{transform:translateY(-8px)}
+@keyframes float{to{transform:translateY(-6px)}}
+
+/* BUTTON */
+button{
+background:#38bdf8;border:none;padding:6px 10px;color:white;border-radius:6px;
 }
 
-/* TOGGLE */
+/* THEME */
 .toggle{
-position:fixed;
-right:20px;
-top:20px;
-background:var(--accent);
-color:white;
-padding:8px 12px;
-border:none;border-radius:6px;
-z-index:2000;
-}
-
-/* DETAILS */
-.details{display:none;margin-top:15px;}
-
-/* GITHUB */
-.github{
-border:1px solid var(--accent);
-padding:10px;margin-top:10px;border-radius:8px;
-}
-
-/* MOBILE */
-@media(max-width:768px){
-.sidebar{position:relative;width:100%;}
-.main{margin-left:0;}
+position:fixed;top:20px;right:20px;
+background:#38bdf8;color:white;border:none;padding:8px;border-radius:6px;
 }
 </style>
 </head>
@@ -146,6 +105,7 @@ padding:10px;margin-top:10px;border-radius:8px;
 <div class="nav">
 <a href="#home">Home</a>
 <a href="#summary">Summary</a>
+<a href="#competencies">Competencies</a>
 <a href="#experience">Experience</a>
 <a href="#projects">Projects</a>
 <a href="#skills">Skills</a>
@@ -158,7 +118,7 @@ padding:10px;margin-top:10px;border-radius:8px;
 
 <div class="main">
 
-<!-- HERO (UNCHANGED) -->
+<!-- HERO -->
 <section class="hero" id="home">
 <div class="hero-content">
 <h1>Sagar Bhilare</h1>
@@ -166,29 +126,64 @@ padding:10px;margin-top:10px;border-radius:8px;
 </div>
 </section>
 
-<!-- ML PIPELINE -->
-<section>
-<h2>ML Pipeline Architecture</h2>
-<div class="pipeline">
-<div class="step">Kafka</div>
-<div class="step">Spark</div>
-<div class="step">Feast</div>
-<div class="step">MLflow</div>
-<div class="step">Kubernetes</div>
-<div class="step">Grafana</div>
+<!-- SUMMARY -->
+<section id="summary">
+<h2>Professional Summary</h2>
+<div class="card">
+Lead AI Engineer with 10+ years of experience in building scalable AI systems, GenAI architectures, and enterprise ML pipelines. Expertise in LangChain, LangGraph, MCP, RAG systems, and cloud-native MLOps across AWS, GCP, and Azure. Proven leader in building AI teams, delivering production-grade ML systems, and driving business transformation through AI.
 </div>
 </section>
 
-<!-- EXPERIENCE FULL -->
-<section id="experience">
-<h2>Experience</h2>
+<!-- COMPETENCIES -->
+<section id="competencies">
+<h2>Core Competencies</h2>
+<div class="card">
+LLM Development • Prompt Engineering • LangChain • LangGraph • MCP • RAG • Vector DBs • CI/CD ML • A/B Testing • Causal Inference • NLP • Deep Learning • ETL • ML Monitoring • Corporate Training
+</div>
+</section>
 
-<div class="card">Elevate Me – Lead AI Engineer</div>
-<div class="card">Imarticus – AI Trainer</div>
-<div class="card">NIIT – Mentor</div>
-<div class="card">Wiley – SME</div>
-<div class="card">Amity – Data Science</div>
-<div class="card">SPDT – Faculty</div>
+<!-- METRICS -->
+<section>
+<h2>Impact Metrics</h2>
+<div class="metrics">
+<div class="metric">7000+ Docs Processed</div>
+<div class="metric">8–10GB ETL Pipelines</div>
+<div class="metric">Sub-100ms APIs</div>
+<div class="metric">200+ Professionals Trained</div>
+</div>
+</section>
+
+<!-- EXPERIENCE -->
+<section id="experience">
+<h2>Professional Experience</h2>
+
+<div class="card">
+<h3>Elevate Me – Dash Technologies</h3>
+<ul>
+<li>Lead AI team building GenAI systems using LangChain, LangGraph, MCP</li>
+<li>Architect multi-agent LLM systems for enterprise reasoning</li>
+<li>Deploy ML APIs on Azure AKS with sub-100ms latency</li>
+<li>CI/CD ML pipelines across AWS, GCP, Azure</li>
+<li>Vector DB: FAISS, Pinecone, ChromaDB</li>
+</ul>
+</div>
+
+<div class="card">
+<h3>Imarticus Learning</h3>
+<ul>
+<li>Trained 200+ professionals</li>
+<li>Built AI Insurance system (Aetna, Anthem)</li>
+<li>Worked on RAG, Sports AI</li>
+</ul>
+</div>
+
+<div class="card">
+<h3>NIIT, Wiley, Amity, SPDT</h3>
+<ul>
+<li>AI training, ML pipelines, A/B testing, causal inference</li>
+<li>Statistical modeling, BI dashboards, curriculum design</li>
+</ul>
+</div>
 
 </section>
 
@@ -198,33 +193,53 @@ padding:10px;margin-top:10px;border-radius:8px;
 
 <div class="card">
 <h3>AI Insurance System</h3>
-<button onclick="toggle(this)">View</button>
-<div class="details">
 
 <div class="pipeline">
-<div class="step">Data</div>
+<div class="step">AWS S3</div>
+<div class="step">BigQuery</div>
 <div class="step">ML</div>
 <div class="step">BERT</div>
-<div class="step">API</div>
+<div class="step">Azure API</div>
 </div>
 
-<div class="github">
-<a href="https://github.com/sagarbhilare90">GitHub</a>
-</div>
+<p>ML → BERT transformation, JSON ETL, CI/CD, monitoring</p>
+
+<!-- ADD YOUR GITHUB -->
+<a href="YOUR_LINK">GitHub</a>
 
 </div>
+
+<div class="card">
+<h3>Data Lineage Agent</h3>
+
+<div class="pipeline">
+<div class="step">Snowflake</div>
+<div class="step">MCP</div>
+<div class="step">LangGraph</div>
+<div class="step">Neo4j</div>
+</div>
+
+<p>3-agent architecture, DAG lineage, LangSmith monitoring</p>
+
+<!-- ADD YOUR GITHUB -->
+<a href="YOUR_LINK">GitHub</a>
+
 </div>
 
 </section>
 
 <!-- SKILLS -->
 <section id="skills">
-<h2>Skills</h2>
+<h2>Technical Skills</h2>
 <div class="grid">
-<div class="card">LangChain, RAG</div>
-<div class="card">Docker, MLflow</div>
-<div class="card">Python</div>
-<div class="card">AWS, Azure</div>
+
+<div class="card">GenAI: LangChain, LangGraph, MCP, RAG, OpenAI</div>
+<div class="card">ML/DL: TensorFlow, PyTorch, NLP, CV</div>
+<div class="card">MLOps: MLflow, Docker, Kubernetes, Airflow</div>
+<div class="card">Programming: Python, SQL, Flask, Django</div>
+<div class="card">Cloud: AWS, GCP, Azure</div>
+<div class="card">Databases: MySQL, MongoDB, BigQuery, Snowflake</div>
+
 </div>
 </section>
 
@@ -238,7 +253,9 @@ padding:10px;margin-top:10px;border-radius:8px;
 <!-- ACHIEVEMENTS -->
 <section id="achievements">
 <h2>Achievements</h2>
-<div class="card">HackerRank Rank 1</div>
+<div class="card">
+HackerRank Rank #1 • Built AI teams • Developed AI curriculum
+</div>
 </section>
 
 <!-- CONTACT -->
@@ -253,7 +270,6 @@ Phone: 7208226914
 </div>
 
 <script>
-// typing
 const roles=["Lead AI Engineer","GenAI Architect","Data Science Team Lead"];
 let i=0,j=0,current="",isDeleting=false;
 function type(){
@@ -266,13 +282,6 @@ setTimeout(type,isDeleting?50:100);
 }
 type();
 
-// toggle
-function toggle(btn){
-let d=btn.nextElementSibling;
-d.style.display=d.style.display==="block"?"none":"block";
-}
-
-// theme
 function toggleTheme(){
 document.body.classList.toggle("light");
 }
