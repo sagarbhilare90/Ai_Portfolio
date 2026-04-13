@@ -10,20 +10,20 @@
 <style>
 :root{
 --bg:#0b1220;
---card:rgba(255,255,255,0.05);
+--card:#111827;
 --text:#e5e7eb;
 --accent:#38bdf8;
 }
-
-*{margin:0;padding:0;box-sizing:border-box;font-family:'Poppins';}
+*{margin:0;padding:0;box-sizing:border-box;font-family:Poppins;}
 body{background:var(--bg);color:var(--text);}
 
 /* NAV */
 nav{
-position:fixed;width:100%;background:rgba(0,0,0,0.6);
+position:fixed;width:100%;
+background:#000000cc;
 backdrop-filter:blur(10px);
-display:flex;justify-content:space-between;padding:12px 20px;
-z-index:1000;
+display:flex;justify-content:space-between;
+padding:12px 20px;z-index:1000;
 }
 nav a{color:white;margin:0 10px;text-decoration:none;font-size:14px;}
 
@@ -39,86 +39,39 @@ content:"";position:absolute;inset:0;background:rgba(0,0,0,0.7);
 .hero-content{position:relative;}
 .hero img{
 width:100px;height:100px;border-radius:50%;
-border:3px solid #38bdf8;
-box-shadow:0 0 25px rgba(56,189,248,0.6);
-margin-bottom:10px;
-animation:fadeUp 1s ease;
+border:2px solid #38bdf8;margin-bottom:10px;
 }
 .hero h1{
 font-size:48px;
 background:linear-gradient(90deg,#38bdf8,#7c3aed);
 -webkit-background-clip:text;
 -webkit-text-fill-color:transparent;
-animation:fadeUp 1s ease;
 }
 
 /* SECTION */
 section{padding:80px 10%;}
 
-/* GLASS CARD */
+/* CARD */
 .card{
 background:var(--card);
-backdrop-filter:blur(15px);
 padding:20px;border-radius:12px;
 margin-bottom:20px;
-transition:0.4s;
-border:1px solid rgba(255,255,255,0.1);
+transition:0.3s;
 }
-.card:hover{
-transform:translateY(-6px) scale(1.01);
-box-shadow:0 10px 30px rgba(0,0,0,0.4);
-}
+.card:hover{transform:translateY(-5px);}
 
-/* GRID */
-.grid{
-display:grid;
-grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
-gap:20px;
-}
-
-/* SKILL BARS */
-.skill{
-margin-bottom:15px;
-}
-.bar{
-height:8px;background:#222;border-radius:5px;
-overflow:hidden;
-}
-.fill{
-height:100%;
-background:linear-gradient(90deg,#38bdf8,#7c3aed);
-animation:grow 2s ease;
-}
-
-/* PROJECT EXPAND */
-.details{
-max-height:0;
-overflow:hidden;
-transition:0.4s;
-}
-.card.active .details{
-max-height:300px;
-}
-
-/* ANIMATIONS */
+/* FADE */
 .fade{
-opacity:0;
-transform:translateY(40px);
-transition:0.8s;
+opacity:0;transform:translateY(40px);
+transition:0.6s;
 }
 .fade.show{
-opacity:1;
-transform:translateY(0);
+opacity:1;transform:translateY(0);
 }
 
-@keyframes fadeUp{
-from{opacity:0;transform:translateY(30px);}
-to{opacity:1;}
-}
-
-@keyframes grow{
-from{width:0;}
-}
+/* TABLE */
+table{width:100%;border-collapse:collapse;}
+td{padding:10px;border-bottom:1px solid #333;}
 
 /* MOBILE */
 @media(max-width:768px){
@@ -133,10 +86,13 @@ from{width:0;}
 <div><b>Sagar Bhilare</b></div>
 <div>
 <a href="#summary">Summary</a>
+<a href="#competencies">Competencies</a>
 <a href="#experience">Experience</a>
 <a href="#projects">Projects</a>
 <a href="#skills">Skills</a>
+<a href="#achievements">Achievements</a>
 <a href="#contact">Contact</a>
+<a href="https://raw.githubusercontent.com/sagarbhilare90/Ai_Portfolio/main/Sagar_Resume.pdf" target="_blank">Resume</a>
 </div>
 </nav>
 
@@ -145,7 +101,8 @@ from{width:0;}
 <div class="hero-content">
 <img src="https://raw.githubusercontent.com/sagarbhilare90/Ai_Portfolio/main/original_8719e965-0870-4a8f-a437-dd08dc00e9c6_PXL_20220522_030557942.PORTRAIT.jpg">
 <h1>Sagar Bhilare</h1>
-<p>Lead AI Engineer | GenAI Architect</p>
+<p>Lead AI Engineer | GenAI Architect | Data Science Team Lead</p>
+<p>Seeking Lead AI Engineer / GenAI Architect Roles</p>
 </div>
 </section>
 
@@ -153,53 +110,83 @@ from{width:0;}
 <section id="summary" class="fade">
 <h2>Professional Summary</h2>
 <div class="card">
-AI/ML leader with 10+ years experience building enterprise AI systems, LLM pipelines, and MLOps.
+Results-driven AI/ML leader with 10+ years of experience spanning engineering, corporate training, and team building. Proven track record in architecting and deploying end-to-end LLM pipelines using LangChain, LangGraph, and Model Context Protocol (MCP). Expertise in GenAI, RAG architectures, CI/CD ML pipelines, and cloud-native MLOps across AWS, GCP, and Azure.
+</div>
+</section>
+
+<!-- COMPETENCIES -->
+<section id="competencies" class="fade">
+<h2>Core Competencies</h2>
+<div class="card">
+LLM Development • Prompt Engineering • LangChain • LangGraph • MCP • RAG • Vector DBs • CI/CD ML • A/B Testing • Causal Inference • NLP • Deep Learning • ETL • ML Monitoring • Corporate Training
 </div>
 </section>
 
 <!-- EXPERIENCE -->
 <section id="experience" class="fade">
-<h2>Experience</h2>
-
-<div class="grid">
+<h2>Professional Experience</h2>
 
 <div class="card">
-<h3>Elevate Me</h3>
-<p>Lead AI Engineer</p>
+<h3>Elevate Me – Dash Technologies | Data Science Team Lead (Nov 2024 – Present)</h3>
 <ul>
-<li>GenAI systems</li>
-<li>LangChain, MCP</li>
+<li>Lead cross-functional AI engineering team building production-grade GenAI solutions using LangChain, LangGraph, MCP frameworks</li>
+<li>Architect multi-agent LLM systems enabling structured reasoning for enterprise AI applications</li>
+<li>Design and implement CI/CD pipelines for ML deployment with monitoring across AWS, GCP, Azure</li>
+<li>Deploy ML APIs and microservices on Azure AKS with sub-100ms latency</li>
+<li>Manage Azure SQL database for experiment tracking and inference data</li>
+<li>Build end-to-end ML pipelines with real-time monitoring (accuracy, latency, drift)</li>
+<li>Drive team upskilling in LLM fine-tuning, prompt engineering, RAG systems</li>
+<li>Implement ETL workflows and vector databases (FAISS, Pinecone, ChromaDB)</li>
 </ul>
 </div>
 
 <div class="card">
-<h3>Imarticus</h3>
-<p>AI Trainer</p>
+<h3>Imarticus Learning | Senior Data Science Coach & AI Corporate Trainer (Oct 2023 – Nov 2024)</h3>
 <ul>
-<li>200+ professionals</li>
+<li>Delivered corporate AI/ML training to 200+ professionals across BFSI, healthcare, and tech sectors</li>
+<li>Built and led AI teams for enterprise clients including L&T Infotech</li>
+<li>Led AI Insurance Coverage Monitoring System for Aetna & Anthem</li>
+<li>Designed curriculum for CI/CD ML pipelines and model monitoring</li>
+<li>Worked on RAG systems, sports analytics, and insurance AI projects</li>
+<li>Conducted technical interviews and onboarding</li>
 </ul>
 </div>
 
 <div class="card">
-<h3>NIIT</h3>
-<p>Mentor</p>
+<h3>NIIT Ltd. | Associate Mentor – Data Science & AI (Aug 2022 – Oct 2023)</h3>
+<ul>
+<li>Delivered corporate AI/ML training covering LLM fundamentals, ML pipelines, Tableau, MySQL</li>
+<li>Built AI learning pathways for CI/CD, MLOps, and end-to-end ML systems</li>
+<li>Mentored students via 1:1 sessions and assessments</li>
+<li>Collaborated with institutions to align curriculum with industry needs</li>
+</ul>
 </div>
 
 <div class="card">
-<h3>Wiley</h3>
-<p>SME</p>
+<h3>Wiley (IWSPL) | Associate Learning Designer (Nov 2021 – Aug 2022)</h3>
+<ul>
+<li>Acted as Data Science SME defining evaluation frameworks for AI/ML programs</li>
+<li>Reviewed ML pipelines, models, and analytics solutions</li>
+<li>Provided guidance on SQL, Tableau, and statistical modeling</li>
+</ul>
 </div>
 
 <div class="card">
-<h3>Amity</h3>
-<p>Data Science</p>
+<h3>Amity Education Group | Program Associate (Aug 2019 – Nov 2021)</h3>
+<ul>
+<li>Performed EDA and built predictive ML models using Python</li>
+<li>Applied causal inference techniques (PSM, DiD, IV)</li>
+<li>Designed A/B testing experiments and hypothesis testing</li>
+<li>Built dashboards using Tableau</li>
+</ul>
 </div>
 
 <div class="card">
-<h3>SPDT</h3>
-<p>Faculty</p>
-</div>
-
+<h3>SPDT College | Visiting Faculty – Mathematics & Statistics (Aug 2016 – Mar 2019)</h3>
+<ul>
+<li>Applied regression, probability, hypothesis testing</li>
+<li>Built analytical reports and solved real-world datasets</li>
+</ul>
 </div>
 
 </section>
@@ -208,41 +195,64 @@ AI/ML leader with 10+ years experience building enterprise AI systems, LLM pipel
 <section id="projects" class="fade">
 <h2>Projects</h2>
 
-<div class="card" onclick="this.classList.toggle('active')">
-<h3>AI Insurance System</h3>
-<div class="details">
-<p>7000+ documents, ML + BERT pipeline</p>
-</div>
+<div class="card">
+<h3>AI Insurance Coverage Monitoring System</h3>
+<ul>
+<li>Analyzed 7000+ insurance documents</li>
+<li>Built ML classification pipeline → upgraded to BERT NLP model</li>
+<li>Designed recursive JSON ETL pipelines (8–10GB batches) using BigQuery</li>
+<li>Deployed REST APIs on Azure with Azure SQL backend</li>
+<li>Integrated AWS S3, GCP BigQuery, Azure for multi-cloud pipeline</li>
+<li>Implemented CI/CD pipelines and monitoring (F1, precision, recall)</li>
+</ul>
 </div>
 
-<div class="card" onclick="this.classList.toggle('active')">
-<h3>Data Lineage Agent</h3>
-<div class="details">
-<p>Multi-agent LLM system</p>
-</div>
+<div class="card">
+<h3>Data Lineage Tracking Agent (iceDQ)</h3>
+<ul>
+<li>Built multi-agent system using LangGraph and MCP</li>
+<li>Designed agents: Data Agent, Query Agent, Graph Agent</li>
+<li>Parsed SQL using sqlglot and built lineage DAG</li>
+<li>Used Neo4j + NetworkX for graph representation</li>
+<li>Integrated LangSmith for observability and monitoring</li>
+<li>Enabled rollback and real-time lineage visualization</li>
+</ul>
 </div>
 
 </section>
 
 <!-- SKILLS -->
 <section id="skills" class="fade">
-<h2>Skills</h2>
+<h2>Technical Skills</h2>
+<table>
+<tr><td>GenAI & LLM</td><td>LangChain, LangGraph, MCP, RAG, OpenAI, BERT, Hugging Face</td></tr>
+<tr><td>ML/DL</td><td>Regression, NLP, Deep Learning, Computer Vision, GAN</td></tr>
+<tr><td>MLOps</td><td>MLflow, Docker, Kubernetes, Airflow, CI/CD</td></tr>
+<tr><td>Programming</td><td>Python, SQL, Flask, Django</td></tr>
+<tr><td>Cloud</td><td>AWS, GCP, Azure</td></tr>
+<tr><td>Databases</td><td>MySQL, MongoDB, PostgreSQL, BigQuery, Snowflake</td></tr>
+<tr><td>Analytics</td><td>Tableau, Power BI, Excel</td></tr>
+</table>
+</section>
 
-<div class="skill">GenAI
-<div class="bar"><div class="fill" style="width:90%"></div></div>
+<!-- ACHIEVEMENTS -->
+<section id="achievements" class="fade">
+<h2>Achievements</h2>
+<div class="card">
+<ul>
+<li>HackerRank Rank #1 in Python</li>
+<li>Developed AI curriculum adopted by NIIT & Imarticus</li>
+<li>Built AI teams for enterprise clients</li>
+</ul>
 </div>
-
-<div class="skill">MLOps
-<div class="bar"><div class="fill" style="width:85%"></div></div>
-</div>
-
 </section>
 
 <!-- CONTACT -->
 <section id="contact" class="fade">
 <h2>Contact</h2>
 <div class="card">
-Email: sagarbhilare90@gmail.com
+Email: sagarbhilare90@gmail.com<br>
+Phone: 7208226914
 </div>
 </section>
 
