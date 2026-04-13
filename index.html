@@ -10,121 +10,119 @@
 <style>
 :root{
 --bg:#0b1220;
---card:#111827;
+--card:rgba(255,255,255,0.05);
 --text:#e5e7eb;
 --accent:#38bdf8;
 }
-.light{
---bg:#f9fafb;
---card:#ffffff;
---text:#111827;
-}
 
 *{margin:0;padding:0;box-sizing:border-box;font-family:'Poppins';}
-
-body{
-background:var(--bg);
-color:var(--text);
-transition:0.3s;
-}
+body{background:var(--bg);color:var(--text);}
 
 /* NAV */
 nav{
-position:fixed;
-width:100%;
-background:var(--card);
-padding:10px 20px;
-display:flex;
-justify-content:space-between;
+position:fixed;width:100%;background:rgba(0,0,0,0.6);
+backdrop-filter:blur(10px);
+display:flex;justify-content:space-between;padding:12px 20px;
 z-index:1000;
 }
-
-nav a{
-color:var(--text);
-margin:0 10px;
-text-decoration:none;
-font-size:14px;
-}
+nav a{color:white;margin:0 10px;text-decoration:none;font-size:14px;}
 
 /* HERO */
 .hero{
-height:90vh;
+height:100vh;
 background:url('https://raw.githubusercontent.com/sagarbhilare90/Ai_Portfolio/main/Gemini_Generated_Image_o3s6fyo3s6fyo3s6.png') center/cover;
-display:flex;
-align-items:center;
-padding:40px;
-position:relative;
+display:flex;align-items:center;padding:40px;position:relative;
 }
 .hero::after{
-content:"";
-position:absolute;
-inset:0;
-background:rgba(0,0,0,0.7);
+content:"";position:absolute;inset:0;background:rgba(0,0,0,0.7);
 }
-.hero-content{
-position:relative;
-}
+.hero-content{position:relative;}
 .hero img{
-width:90px;height:90px;border-radius:50%;
-border:2px solid #38bdf8;
+width:100px;height:100px;border-radius:50%;
+border:3px solid #38bdf8;
+box-shadow:0 0 25px rgba(56,189,248,0.6);
 margin-bottom:10px;
+animation:fadeUp 1s ease;
 }
 .hero h1{
-font-size:40px;
+font-size:48px;
 background:linear-gradient(90deg,#38bdf8,#7c3aed);
 -webkit-background-clip:text;
 -webkit-text-fill-color:transparent;
+animation:fadeUp 1s ease;
 }
 
 /* SECTION */
-section{
-padding:70px 10%;
-max-width:1200px;
-margin:auto;
-}
+section{padding:80px 10%;}
 
-/* CARD */
+/* GLASS CARD */
 .card{
 background:var(--card);
-padding:20px;
-border-radius:10px;
+backdrop-filter:blur(15px);
+padding:20px;border-radius:12px;
 margin-bottom:20px;
-transition:0.3s;
+transition:0.4s;
+border:1px solid rgba(255,255,255,0.1);
 }
-.card:hover{transform:translateY(-4px);}
+.card:hover{
+transform:translateY(-6px) scale(1.01);
+box-shadow:0 10px 30px rgba(0,0,0,0.4);
+}
 
 /* GRID */
 .grid{
 display:grid;
-grid-template-columns:repeat(auto-fit,minmax(300px,1fr));
+grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
 gap:20px;
 }
 
-/* TABLE */
-table{
-width:100%;
-border-collapse:collapse;
+/* SKILL BARS */
+.skill{
+margin-bottom:15px;
 }
-td{
-padding:10px;
-border-bottom:1px solid #333;
+.bar{
+height:8px;background:#222;border-radius:5px;
+overflow:hidden;
+}
+.fill{
+height:100%;
+background:linear-gradient(90deg,#38bdf8,#7c3aed);
+animation:grow 2s ease;
 }
 
-/* FADE */
+/* PROJECT EXPAND */
+.details{
+max-height:0;
+overflow:hidden;
+transition:0.4s;
+}
+.card.active .details{
+max-height:300px;
+}
+
+/* ANIMATIONS */
 .fade{
 opacity:0;
-transform:translateY(30px);
-transition:0.6s;
+transform:translateY(40px);
+transition:0.8s;
 }
 .fade.show{
 opacity:1;
 transform:translateY(0);
 }
 
+@keyframes fadeUp{
+from{opacity:0;transform:translateY(30px);}
+to{opacity:1;}
+}
+
+@keyframes grow{
+from{width:0;}
+}
+
 /* MOBILE */
 @media(max-width:768px){
-.hero h1{font-size:28px;}
-nav{flex-wrap:wrap;}
+.hero h1{font-size:30px;}
 }
 </style>
 </head>
@@ -139,7 +137,6 @@ nav{flex-wrap:wrap;}
 <a href="#projects">Projects</a>
 <a href="#skills">Skills</a>
 <a href="#contact">Contact</a>
-<a href="https://raw.githubusercontent.com/sagarbhilare90/Ai_Portfolio/main/Sagar_Resume.pdf" target="_blank">Resume</a>
 </div>
 </nav>
 
@@ -148,8 +145,7 @@ nav{flex-wrap:wrap;}
 <div class="hero-content">
 <img src="https://raw.githubusercontent.com/sagarbhilare90/Ai_Portfolio/main/original_8719e965-0870-4a8f-a437-dd08dc00e9c6_PXL_20220522_030557942.PORTRAIT.jpg">
 <h1>Sagar Bhilare</h1>
-<p>Lead AI Engineer | GenAI Architect | Data Science Team Lead</p>
-<p>Seeking Lead AI Engineer / GenAI Architect Roles</p>
+<p>Lead AI Engineer | GenAI Architect</p>
 </div>
 </section>
 
@@ -157,62 +153,53 @@ nav{flex-wrap:wrap;}
 <section id="summary" class="fade">
 <h2>Professional Summary</h2>
 <div class="card">
-Results-driven AI/ML leader with 10+ years of experience spanning engineering, corporate training, and team building. Expertise in LLM pipelines (LangChain, LangGraph, MCP), GenAI, RAG architectures, and MLOps across AWS, GCP, Azure. Proven success in delivering enterprise AI systems and leading high-performing teams.
+AI/ML leader with 10+ years experience building enterprise AI systems, LLM pipelines, and MLOps.
 </div>
 </section>
 
 <!-- EXPERIENCE -->
 <section id="experience" class="fade">
-<h2>Professional Experience</h2>
+<h2>Experience</h2>
+
+<div class="grid">
 
 <div class="card">
-<h3>Elevate Me – Dash Technologies | Data Science Team Lead (Nov 2024 – Present)</h3>
+<h3>Elevate Me</h3>
+<p>Lead AI Engineer</p>
 <ul>
-<li>Lead AI team building production-grade GenAI solutions using LangChain, LangGraph, MCP</li>
-<li>Architect multi-agent LLM systems for enterprise reasoning</li>
-<li>Deploy ML APIs on Azure AKS with sub-100ms latency</li>
-<li>CI/CD ML pipelines across AWS, GCP, Azure</li>
-<li>Manage Azure SQL for model tracking</li>
-<li>Vector DB systems: FAISS, Pinecone, ChromaDB</li>
+<li>GenAI systems</li>
+<li>LangChain, MCP</li>
 </ul>
 </div>
 
 <div class="card">
-<h3>Imarticus Learning | Senior Data Science Coach (Oct 2023 – Nov 2024)</h3>
+<h3>Imarticus</h3>
+<p>AI Trainer</p>
 <ul>
-<li>Trained 200+ professionals in AI/ML and GenAI</li>
-<li>Led AI Insurance system for Aetna & Anthem</li>
-<li>Worked on RAG, analytics, enterprise AI</li>
+<li>200+ professionals</li>
 </ul>
 </div>
 
 <div class="card">
-<h3>NIIT Ltd. | Associate Mentor (Aug 2022 – Oct 2023)</h3>
-<ul>
-<li>Delivered corporate training on ML, LLMs, Tableau</li>
-<li>Built MLOps and CI/CD learning pathways</li>
-</ul>
+<h3>NIIT</h3>
+<p>Mentor</p>
 </div>
 
 <div class="card">
-<h3>Wiley (IWSPL) | Associate Learning Designer (Nov 2021 – Aug 2022)</h3>
-<ul>
-<li>Data Science SME, evaluation frameworks, ML validation</li>
-</ul>
+<h3>Wiley</h3>
+<p>SME</p>
 </div>
 
 <div class="card">
-<h3>Amity Education Group | Program Associate (Aug 2019 – Nov 2021)</h3>
-<ul>
-<li>ML models, causal inference, A/B testing</li>
-</ul>
+<h3>Amity</h3>
+<p>Data Science</p>
 </div>
 
 <div class="card">
-<h3>SPDT College | Visiting Faculty (Aug 2016 – Mar 2019)</h3>
-<ul>
-<li>Statistical modeling and quantitative analysis</li>
-</ul>
+<h3>SPDT</h3>
+<p>Faculty</p>
+</div>
+
 </div>
 
 </section>
@@ -221,41 +208,41 @@ Results-driven AI/ML leader with 10+ years of experience spanning engineering, c
 <section id="projects" class="fade">
 <h2>Projects</h2>
 
-<div class="card">
-<h3>AI Insurance Coverage Monitoring System</h3>
-<p><b>Problem:</b> Manual policy analysis inefficiency</p>
-<p><b>Solution:</b> ML → BERT NLP pipeline with ETL</p>
-<p><b>Tech:</b> AWS S3, BigQuery, Azure, Flask</p>
-<p><b>Impact:</b> Automated 7000+ documents</p>
+<div class="card" onclick="this.classList.toggle('active')">
+<h3>AI Insurance System</h3>
+<div class="details">
+<p>7000+ documents, ML + BERT pipeline</p>
+</div>
 </div>
 
-<div class="card">
-<h3>Data Lineage Tracking Agent</h3>
-<p><b>Solution:</b> Multi-agent LLM system using LangGraph + MCP</p>
-<p><b>Tech:</b> Snowflake, Neo4j</p>
-<p><b>Impact:</b> Automated lineage DAG tracking</p>
+<div class="card" onclick="this.classList.toggle('active')">
+<h3>Data Lineage Agent</h3>
+<div class="details">
+<p>Multi-agent LLM system</p>
+</div>
 </div>
 
 </section>
 
 <!-- SKILLS -->
 <section id="skills" class="fade">
-<h2>Technical Skills</h2>
-<table>
-<tr><td>GenAI</td><td>LangChain, LangGraph, MCP, RAG</td></tr>
-<tr><td>ML/DL</td><td>TensorFlow, PyTorch, NLP</td></tr>
-<tr><td>MLOps</td><td>Docker, Kubernetes, MLflow</td></tr>
-<tr><td>Cloud</td><td>AWS, GCP, Azure</td></tr>
-<tr><td>Programming</td><td>Python, SQL</td></tr>
-</table>
+<h2>Skills</h2>
+
+<div class="skill">GenAI
+<div class="bar"><div class="fill" style="width:90%"></div></div>
+</div>
+
+<div class="skill">MLOps
+<div class="bar"><div class="fill" style="width:85%"></div></div>
+</div>
+
 </section>
 
 <!-- CONTACT -->
 <section id="contact" class="fade">
 <h2>Contact</h2>
 <div class="card">
-Email: sagarbhilare90@gmail.com<br>
-Phone: 7208226914
+Email: sagarbhilare90@gmail.com
 </div>
 </section>
 
