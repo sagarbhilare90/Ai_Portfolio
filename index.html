@@ -10,161 +10,236 @@
 <style>
 :root{
 --bg:#0b1220;
---card:#0f172a;
---text:#e2e8f0;
+--card:#111827;
+--text:#e5e7eb;
 --accent:#38bdf8;
 }
+
 .light{
---bg:#f8fafc;
+--bg:#f9fafb;
 --card:#ffffff;
---text:#0f172a;
+--text:#111827;
 }
 
-*{margin:0;padding:0;box-sizing:border-box;font-family:'Poppins';}
-body{display:flex;background:var(--bg);color:var(--text);transition:0.3s;}
+*{margin:0;padding:0;box-sizing:border-box;font-family:'Poppins',sans-serif;}
 
-/* SIDEBAR */
-.sidebar{
-width:260px;height:100vh;background:var(--card);
-padding:30px 20px;position:fixed;
+body{
+background:var(--bg);
+color:var(--text);
+transition:0.3s;
 }
-.profile-img{
-width:100px;height:100px;border-radius:50%;
-background:url('https://raw.githubusercontent.com/sagarbhilare90/Ai_Portfolio/main/original_8719e965-0870-4a8f-a437-dd08dc00e9c6_PXL_20220522_030557942.PORTRAIT.jpg') center/cover;
-margin:auto;
-}
-.name{text-align:center;margin-top:10px;font-weight:600;}
 
-.nav a{
-display:block;padding:10px;color:#94a3b8;text-decoration:none;border-radius:8px;
+/* NAV */
+nav{
+position:fixed;
+width:100%;
+background:var(--card);
+display:flex;
+justify-content:space-between;
+padding:12px 20px;
+z-index:1000;
 }
-.nav a:hover{background:#2563eb;color:white;}
 
-.main{margin-left:260px;width:100%;}
+nav a{
+color:var(--text);
+margin:0 10px;
+text-decoration:none;
+font-size:14px;
+}
 
 /* HERO */
 .hero{
 height:100vh;
 background:url('https://raw.githubusercontent.com/sagarbhilare90/Ai_Portfolio/main/Gemini_Generated_Image_o3s6fyo3s6fyo3s6.png') center/cover;
-display:flex;align-items:center;padding:60px;position:relative;
+display:flex;
+align-items:center;
+padding:40px;
+position:relative;
 }
+
 .hero::after{
-content:"";position:absolute;inset:0;background:rgba(0,0,0,0.7);
+content:"";
+position:absolute;
+inset:0;
+background:rgba(0,0,0,0.6);
 }
-.hero-content{position:relative;}
-.hero h1{font-size:60px;background:linear-gradient(90deg,#38bdf8,#7c3aed);-webkit-background-clip:text;-webkit-text-fill-color:transparent;}
-.hero p{font-size:22px;margin-top:10px;}
+
+.hero-content{
+position:relative;
+}
+
+.hero h1{
+font-size:48px;
+background:linear-gradient(90deg,#38bdf8,#7c3aed);
+-webkit-background-clip:text;
+-webkit-text-fill-color:transparent;
+}
+
+.hero p{font-size:20px;margin-top:10px;}
+
+/* PROFILE */
+.profile{
+display:flex;
+align-items:center;
+gap:20px;
+}
+
+.profile img{
+width:80px;
+height:80px;
+border-radius:50%;
+border:2px solid var(--accent);
+}
 
 /* SECTION */
-section{padding:80px 60px;}
-h2{font-size:30px;margin-bottom:20px;color:#38bdf8;}
+section{
+padding:80px 10%;
+}
 
+h2{
+color:var(--accent);
+margin-bottom:20px;
+}
+
+/* CARD */
 .card{
-background:rgba(255,255,255,0.05);
-padding:20px;border-radius:12px;margin-bottom:20px;
+background:var(--card);
+padding:20px;
+border-radius:10px;
+margin-bottom:20px;
+transition:0.3s;
+}
+
+.card:hover{
+transform:translateY(-5px);
 }
 
 /* GRID */
-.grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:20px;}
+.grid{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+gap:20px;
+}
 
 /* METRICS */
-.metrics{display:flex;gap:20px;flex-wrap:wrap;}
+.metrics{
+display:flex;
+flex-wrap:wrap;
+gap:15px;
+}
+
 .metric{
-background:#2563eb;padding:15px;border-radius:10px;
+background:#2563eb;
+padding:15px;
+border-radius:8px;
 }
 
 /* PIPELINE */
-.pipeline{display:flex;flex-wrap:wrap;gap:10px;}
+.pipeline{
+display:flex;
+flex-wrap:wrap;
+gap:10px;
+margin-top:10px;
+}
+
 .step{
-background:#2563eb;padding:10px;border-radius:20px;
+background:#2563eb;
+padding:8px 12px;
+border-radius:20px;
 animation:float 2s infinite alternate;
 }
-@keyframes float{to{transform:translateY(-6px)}}
+
+@keyframes float{
+to{transform:translateY(-5px);}
+}
+
+/* ANIMATION */
+.fade{
+opacity:0;
+transform:translateY(40px);
+transition:0.6s;
+}
+.fade.show{
+opacity:1;
+transform:translateY(0);
+}
 
 /* BUTTON */
 button{
-background:#38bdf8;border:none;padding:6px 10px;color:white;border-radius:6px;
+background:var(--accent);
+border:none;
+padding:6px 10px;
+color:white;
+border-radius:6px;
+cursor:pointer;
 }
 
-/* THEME */
-.toggle{
-position:fixed;top:20px;right:20px;
-background:#38bdf8;color:white;border:none;padding:8px;border-radius:6px;
+/* MOBILE */
+@media(max-width:768px){
+.hero h1{font-size:32px;}
+nav{flex-wrap:wrap;}
 }
 </style>
 </head>
 
 <body>
 
-<button class="toggle" onclick="toggleTheme()">🌗</button>
-
-<div class="sidebar">
-<div class="profile-img"></div>
-<div class="name">Sagar Bhilare</div>
-
-<div class="nav">
-<a href="#home">Home</a>
+<nav>
+<div><b>Sagar Bhilare</b></div>
+<div>
 <a href="#summary">Summary</a>
-<a href="#competencies">Competencies</a>
 <a href="#experience">Experience</a>
 <a href="#projects">Projects</a>
 <a href="#skills">Skills</a>
-<a href="#education">Education</a>
-<a href="#achievements">Achievements</a>
 <a href="#contact">Contact</a>
-<a href="" download>📄 Resume</a>
+<a href="https://raw.githubusercontent.com/sagarbhilare90/Ai_Portfolio/main/Sagar_Resume.pdf" target="_blank">Resume</a>
 </div>
-</div>
-
-<div class="main">
+</nav>
 
 <!-- HERO -->
-<section class="hero" id="home">
+<section class="hero">
 <div class="hero-content">
+<div class="profile">
+<img src="https://raw.githubusercontent.com/sagarbhilare90/Ai_Portfolio/main/original_8719e965-0870-4a8f-a437-dd08dc00e9c6_PXL_20220522_030557942.PORTRAIT.jpg">
+<div>
 <h1>Sagar Bhilare</h1>
-<p id="typing"></p>
+<p>Lead AI Engineer | GenAI Architect | Data Science Team Lead</p>
+<p>Seeking Lead AI Engineer / GenAI Architect Roles</p>
+</div>
+</div>
 </div>
 </section>
 
 <!-- SUMMARY -->
-<section id="summary">
+<section id="summary" class="fade">
 <h2>Professional Summary</h2>
 <div class="card">
-Lead AI Engineer with 10+ years of experience in building scalable AI systems, GenAI architectures, and enterprise ML pipelines. Expertise in LangChain, LangGraph, MCP, RAG systems, and cloud-native MLOps across AWS, GCP, and Azure. Proven leader in building AI teams, delivering production-grade ML systems, and driving business transformation through AI.
-</div>
-</section>
-
-<!-- COMPETENCIES -->
-<section id="competencies">
-<h2>Core Competencies</h2>
-<div class="card">
-LLM Development • Prompt Engineering • LangChain • LangGraph • MCP • RAG • Vector DBs • CI/CD ML • A/B Testing • Causal Inference • NLP • Deep Learning • ETL • ML Monitoring • Corporate Training
+AI/ML leader with 10+ years experience in building enterprise AI systems, LLM pipelines, and scalable MLOps platforms across AWS, GCP, and Azure. Proven expertise in GenAI, RAG, LangChain, LangGraph, and MCP. Strong leadership in building AI teams and delivering production-grade systems for enterprise clients.
 </div>
 </section>
 
 <!-- METRICS -->
-<section>
-<h2>Impact Metrics</h2>
+<section class="fade">
+<h2>Impact</h2>
 <div class="metrics">
-<div class="metric">7000+ Docs Processed</div>
-<div class="metric">8–10GB ETL Pipelines</div>
+<div class="metric">7000+ Documents</div>
+<div class="metric">8–10GB ETL</div>
 <div class="metric">Sub-100ms APIs</div>
 <div class="metric">200+ Professionals Trained</div>
 </div>
 </section>
 
 <!-- EXPERIENCE -->
-<section id="experience">
-<h2>Professional Experience</h2>
+<section id="experience" class="fade">
+<h2>Experience</h2>
 
 <div class="card">
 <h3>Elevate Me – Dash Technologies</h3>
 <ul>
 <li>Lead AI team building GenAI systems using LangChain, LangGraph, MCP</li>
-<li>Architect multi-agent LLM systems for enterprise reasoning</li>
-<li>Deploy ML APIs on Azure AKS with sub-100ms latency</li>
-<li>CI/CD ML pipelines across AWS, GCP, Azure</li>
-<li>Vector DB: FAISS, Pinecone, ChromaDB</li>
+<li>Architect multi-agent LLM systems</li>
+<li>Deploy APIs on Azure AKS (sub-100ms)</li>
+<li>CI/CD pipelines across AWS, GCP, Azure</li>
 </ul>
 </div>
 
@@ -172,41 +247,39 @@ LLM Development • Prompt Engineering • LangChain • LangGraph • MCP • R
 <h3>Imarticus Learning</h3>
 <ul>
 <li>Trained 200+ professionals</li>
-<li>Built AI Insurance system (Aetna, Anthem)</li>
-<li>Worked on RAG, Sports AI</li>
+<li>Led AI Insurance system</li>
+<li>Worked on RAG, analytics</li>
 </ul>
 </div>
 
 <div class="card">
-<h3>NIIT, Wiley, Amity, SPDT</h3>
+<h3>NIIT | Wiley | Amity | SPDT</h3>
 <ul>
 <li>AI training, ML pipelines, A/B testing, causal inference</li>
-<li>Statistical modeling, BI dashboards, curriculum design</li>
+<li>Statistical modeling and BI dashboards</li>
 </ul>
 </div>
 
 </section>
 
 <!-- PROJECTS -->
-<section id="projects">
+<section id="projects" class="fade">
 <h2>Projects</h2>
 
 <div class="card">
 <h3>AI Insurance System</h3>
 
 <div class="pipeline">
-<div class="step">AWS S3</div>
+<div class="step">S3</div>
 <div class="step">BigQuery</div>
 <div class="step">ML</div>
 <div class="step">BERT</div>
-<div class="step">Azure API</div>
+<div class="step">API</div>
 </div>
 
-<p>ML → BERT transformation, JSON ETL, CI/CD, monitoring</p>
+<p>End-to-end ML + NLP system with ETL pipelines and Azure deployment</p>
 
-<!-- ADD YOUR GITHUB -->
-<a href="">GitHub</a>
-
+<a href="#">GitHub</a>
 </div>
 
 <div class="card">
@@ -219,47 +292,28 @@ LLM Development • Prompt Engineering • LangChain • LangGraph • MCP • R
 <div class="step">Neo4j</div>
 </div>
 
-<p>3-agent architecture, DAG lineage, LangSmith monitoring</p>
+<p>Multi-agent AI system for lineage tracking</p>
 
-<!-- ADD YOUR GITHUB -->
 <a href="https://github.com/sagarbhilare90/Agentic-Lineage-tracker-MCP">GitHub</a>
-
 </div>
 
 </section>
 
 <!-- SKILLS -->
-<section id="skills">
+<section id="skills" class="fade">
 <h2>Technical Skills</h2>
 <div class="grid">
 
-<div class="card">GenAI: LangChain, LangGraph, MCP, RAG, OpenAI</div>
-<div class="card">ML/DL: TensorFlow, PyTorch, NLP, CV</div>
-<div class="card">MLOps: MLflow, Docker, Kubernetes, Airflow</div>
-<div class="card">Programming: Python, SQL, Flask, Django</div>
+<div class="card">GenAI: LangChain, RAG, MCP</div>
+<div class="card">ML/DL: TensorFlow, PyTorch</div>
+<div class="card">MLOps: Docker, Kubernetes</div>
 <div class="card">Cloud: AWS, GCP, Azure</div>
-<div class="card">Databases: MySQL, MongoDB, BigQuery, Snowflake</div>
 
-</div>
-</section>
-
-<!-- EDUCATION -->
-<section id="education">
-<h2>Education</h2>
-<div class="card">MSc AI – Mizoram University</div>
-<div class="card">BE Mechanical</div>
-</section>
-
-<!-- ACHIEVEMENTS -->
-<section id="achievements">
-<h2>Achievements</h2>
-<div class="card">
-HackerRank Rank #1 • Built AI teams • Developed AI curriculum
 </div>
 </section>
 
 <!-- CONTACT -->
-<section id="contact">
+<section id="contact" class="fade">
 <h2>Contact</h2>
 <div class="card">
 Email: sagarbhilare90@gmail.com<br>
@@ -267,24 +321,16 @@ Phone: 7208226914
 </div>
 </section>
 
-</div>
-
 <script>
-const roles=["Lead AI Engineer","GenAI Architect","Data Science Team Lead"];
-let i=0,j=0,current="",isDeleting=false;
-function type(){
-current=roles[i];
-document.getElementById("typing").innerHTML=current.substring(0,j);
-if(!isDeleting&&j<current.length){j++;}
-else if(isDeleting&&j>0){j--;}
-else{isDeleting=!isDeleting;if(!isDeleting)i=(i+1)%roles.length;}
-setTimeout(type,isDeleting?50:100);
+// animation
+const els=document.querySelectorAll('.fade');
+window.addEventListener('scroll',()=>{
+els.forEach(el=>{
+if(el.getBoundingClientRect().top<window.innerHeight-100){
+el.classList.add('show');
 }
-type();
-
-function toggleTheme(){
-document.body.classList.toggle("light");
-}
+});
+});
 </script>
 
 </body>
